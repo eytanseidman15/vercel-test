@@ -21,20 +21,12 @@ module.exports = (req, res) => {
 
     const getPrice = async () => {
         try {
-            const cachedprice = client.hget(ticker, "price")
-            
-            if (typeof cachedprice != "undefined" && cachedprice) {
-                console.log("its coming form the cache");
-                console.log(cachedprice);
-                return cachedpriced;
-            } else { 
                 const response = await axios.get(alphaurl);
                 //console.log(response.data)
                 const stocks = response.data['Global Quote']['05. price'];
                 console.log("Returned price data from alphavantage: " + stocks);
                 return stocks
-            }
-        } catch (err) {
+            } catch (err) {
                 console.log(err)
             }
         }
