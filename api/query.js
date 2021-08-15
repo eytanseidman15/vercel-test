@@ -1,5 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import db from '@/lib/planetscale';
+import { PSDB } from 'planetscale-node';
+
+const db = new PSDB('main');
 
 export default async (req, res) => {
   const {
