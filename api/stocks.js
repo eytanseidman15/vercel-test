@@ -9,7 +9,7 @@ const client = redis.createClient(process.env.REDIS_URL);
 
 module.exports = (req, res) => {
     //get the ticker
-    const { ticker = 'shop' } = req.query;
+    const { ticker = 'wcld' } = req.query;
     const hashname = 'stockshash';
     console.log(ticker);
 
